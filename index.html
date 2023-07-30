@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store Discount Calculator</title>
+</head>
+<body>
+<h1>Online Store Discount Calculator</h1>
+<p>Enter the total purchase amount:</p>
+<input type="number" id="purchaseAmount" step="0.01">
+<button onclick="calculateDiscount()">Calculate Discount</button>
+<p id="result"></p>
+
+<script>
+    function calculateDiscount() {
+        const purchaseAmountInput = document.getElementById("purchaseAmount");
+        const purchaseAmount = parseFloat(purchaseAmountInput.value);
+        let discountRate = 0;
+
+        if (purchaseAmount < 50) {
+            discountRate = 0;
+        } else if (purchaseAmount >= 50 && purchaseAmount <= 100) {
+            discountRate = 0.05;
+        } else if (purchaseAmount > 100 && purchaseAmount <= 200) {
+            discountRate = 0.1;
+        } else {
+            discountRate = 0.15;
+        }
+
+        const discountAmount = purchaseAmount * discountRate;
+        const discountedPrice = purchaseAmount - discountAmount;
+
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = `Total Purchase Amount: $${purchaseAmount.toFixed(2)}<br>
+                                 Discount Rate: ${discountRate * 100}%<br>
+                                 Discount Amount: $${discountAmount.toFixed(2)}<br>
+                                 Discounted Price: $${discountedPrice.toFixed(2)}`;
+    }
+</script>
+</body>
+</html>

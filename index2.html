@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Even Number Filter</title>
+</head>
+<body>
+<script>
+    // Function to filter even numbers from an array
+    function filterEvenNumbers(numbers) {
+        return numbers.filter(num => num % 2 === 0);
+    }
+
+    // Function to get user input and call the filterEvenNumbers function
+    function getUserInputAndFilterEvenNumbers() {
+        const input = window.prompt("Enter numbers separated by commas:"); // Prompt the user to enter numbers
+        const numbersArray = input.split(",").map(num => parseInt(num.trim())); // Convert the input string to an array of numbers
+
+        const evenNumbers = filterEvenNumbers(numbersArray); // Filter even numbers
+
+        if (evenNumbers.length > 0) {
+            window.alert("Filtered even numbers: " + evenNumbers.join(", "));
+        } else {
+            window.alert("No even numbers found in the given array.");
+        }
+    }
+
+    // Call the function to start the program
+    getUserInputAndFilterEvenNumbers();
+</script>
+</body>
+</html>
